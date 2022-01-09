@@ -1,0 +1,45 @@
+body
+		{
+			text-align: left;
+			background-image: url({{ url_for ('static', filename = '/static/contact.jpg') }});
+			background-position: all;
+			background-size: cover;
+			font-family: sans-serif;
+		}
+		.message
+		{
+			width: 420px;
+			height: 70px;
+
+		}
+		.regform
+		{
+			position: left;
+			width: 700px;
+			background-color: grey;
+			margin: auto;
+			padding: 10px 0px 10px 0px;
+			text-align: center;
+			border-radius: 130px 0px 130px 0px;
+		}
+		.mail
+		{
+			position: left;
+		}
+		.button1
+		{
+			background: linear-gradient(-45deg , yellow, black);
+			border-radius: 8px;
+		}
+		.firstname
+		{
+			border-radius: 8px;
+		}
+		.mail
+		{
+			border-radius: 8px;
+		}
+		.message
+		{
+			border-radius: 8px;
+		}

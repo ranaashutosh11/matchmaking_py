@@ -1,0 +1,10 @@
+{
+  "params":
+  {
+    "local_server": "True",
+    "local_url": "mysql://root:@localhost/matchmaker",
+    "prod_url": "mysql://root:@localhost/matchmaker",
+    "fb_url": "facebook.com/matchmaking",
+
+  }
+}

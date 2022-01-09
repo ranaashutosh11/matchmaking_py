@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Match</title>
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='match.css') }}"> -->
+    <style>
+        .container{
+  content: "";
+  background-image: url(/static/matchbg.jpg);
+  z-index: -1;
+  /* opacity:0.9; */
+  width: 100%;
+  position: absolute;
+  background-position: center;
+            background-size: cover;
+}
+.wouldurather{
+border:1px solid black;
+border-radius: 15px;
+padding: 1rem;
+margin: 0.5rem;
+background-color: #fff;
+width: 250px;
+}
+.head{
+  text-align: center;
+  height: 100px;
+  margin: 20px;
+  font-weight: bolder;
+  font-size: larger;
+  color: rgb(247, 244, 240);
+  font-family: cursive;
+}
+select {
+width: 70%;
+padding: 16px 20px;
+border: none;
+border-radius: 4px;
+background-color: #f1f1f1;
+}
+input[type=number] {
+border: none;
+border-bottom: 2px solid rgb(2, 2, 2);
+}
+input[type=checkbox]{
+margin-left: 20px;
+}
+input[type=checkbox]:hover{
+color: blue;
+cursor: pointer;
+}
+input {
+padding: 12px 20px;
+margin: 8px 0;
+box-sizing: border-box;
+}
+input[type=submit] {
+background-color: #4CAF50;
+color: white;
+padding: 12px 20px;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+float: inline-end;
+display: block;
+margin: 6px;
+}
+input[type=submit]:hover {
+background-color: #45a049;
+}
+.form{
+  background-color: #fff;
+  border-radius: 20px;
+  width: 55%;
+  margin: auto;
+  display: grid;
+  opacity: 0.6;
+}
+.col-25 {
+float: left;
+width: 40%;
+margin-top: 6px;
+}
+.col-75 {
+float: right;
+width: 60%;
+margin-top: 6px;
+}
+.option{
+    margin: auto;
+    padding: 15px;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 20px;
+    overflow: hidden;
+}
+#subject{
+    height: 200px;
+    width: 250px;
+}
+.msg{
+    text-align: center;
+    color:azure;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="head">
+            <h1 id="heading">Find your Match</h1>
+            <span class="subheading">Find out who is perfect for you..</span>
+        </div>
+        <div class="msg" style="color: black;">{{ msg }} <br> {{ name }} <br> {{ email }} </div> 
+        <div class="form">
+            <form name="findMatch" id="matchForm" action = "{{ url_for('match') }}" method="post" novalidate>
+                <div class="option">
+                    <div class="col-25">
+                    <label for="id">Id</label></div>
+                    <div class="col-75">
+                    <input type="text" class="form-control" id="Input1" name="id"></div>
+                </div>
+                <div class="option">
+                    <div class="col-25">
+                    <label for="age">Age</label></div>
+                    <div class="col-75">
+                    <input type="text" class="form-control" id="Input1" name="age"></div>
+                </div>
+                <div class="option">
+                    <div class="col-25">
+                    <label for="gender">Gender:</label></div>
+                    <div class="col-75">
+                    <select name="gender" class="form-control" id="Select1">
+                        <option>Male</option>
+                        <option>Female</option>
+                    </select></div>
+                </div>
+                <div class="option">
+                    <div class="col-25">
+                    <label for="personality">Personality:</label></div>
+                    <div class="col-75">
+                    <select name="peronality" class="form-control" id="Select2">
+                        <option>Introvert</option>
+                        <option>Extrovert</option>
+                        <option>Ambivert</option>
+                    </select></div>
+                </div>
+                
+                <div class="option">
+                    <div class="col-25">
+                    <label for="Eat">Eating habits:</label></div>
+                    <div class="col-75">
+                    <select name="eating" class="form-control" id="Select3">
+                        <option>Vegetarian</option>
+                        <option>Non-vegetarian</option>
+                        <option>Eggetarian</option>
+                        <option>Vegan</option>
+                    </select></div>
+                </div>
+                <div class="option">
+                    <div class="col-25">
+                    <p>Hobbies</p></div>
+                    <div class="col-75">
+                    <input type="checkbox" class="hobby" name="hob" value="Sports / Gaming">
+                    <label for="hob1">Sports / Gaming</label><br>
+                    <input type="checkbox" class="hobby" name="hob" value="Reading / Writing">
+                    <label for="hob2"> Reading / Writing</label><br>
+                    <input type="checkbox" class="hobby" name="hob" value="Dancing / Singing">
+                    <label for="hob3"> Dancing / Singing</label><br>
+                    <input type="checkbox" class="hobby" name="hob" value="Art / Creativity">
+                    <label for="hob4"> Art / Creativity </label><br>
+                    <input type="checkbox" class="hobby" name="hob" value="Movies / Music">
+                    <label for="hob5"> Movies / Music</label><br>
+                    <input type="checkbox" class="hobby" name="hob" value="Cooking">
+                    <label for="hob6"> Cooking</label><br></div>
+                </div>
+                <div class="option">
+                    <div class="col-25">
+                    <p>How would you describe yourself</p></div>
+                    <div class="col-75">
+                    <input type="checkbox" class="quality" name="quality" value="Cheerful">
+                    <label for="hob1">Cheerful</label><br>
+                    <input type="checkbox" class="quality" name="quality" value="Humourous">
+                    <label for="hob2">Humourous</label><br>
+                    <input type="checkbox" class="quality" name="quality" value="Adventurous">
+                    <label for="hob3">Adventurous</label><br>
+                    <input type="checkbox" class="quality" name="quality" value="Emotional">
+                    <label for="hob4">Emotional</label><br>
+                    <input type="checkbox" class="quality" name="quality" value="Empathetic">
+                    <label for="hob5">Empathetic</label><br>
+                    <input type="checkbox" class="quality" name="quality" value="Witty">
+                    <label for="hob6">Witty</label><br>
+                    <input type="checkbox" class="quality" name="quality" value="Aggressive">
+                    <label for="hob7">Aggressive</label><br></div>
+                </div>
+                <div class="option">
+                    <div >
+                        <div class="col-25">
+                        <p>Would you Rather...!</p></div>
+                        <div class="col-75">
+                        <div class="wouldurather">
+                            <input type="radio" id="male" name="WoulduRather1" value="Stayout">
+                            <label for="opt1">Stay out on weekend</label><br>
+                            <input type="radio" id="female" name="WoulduRather1" value="stayin">
+                            <label for="opt2">Stay in on weekend</label><br>
+                        </div>
+                        <div class="wouldurather">
+                            <input type="radio" id="male" name="WoulduRather2" value="invisible">
+                            <label for="opt1">Be invisble</label><br>
+                            <input type="radio" id="female" name="WoulduRather2" value="mindReader">
+                            <label for="opt2">Be a mind reader</label><br>
+                        </div>
+                        <div class="wouldurather">
+                            <input type="radio" id="male" name="WoulduRather3" value="SayEverything">
+                            <label for="opt1">Say everything that is in your mind</label><br>
+                            <input type="radio" id="female" name="WoulduRather3" value="SayNothing">
+                            <label for="opt2">Keep silent the whole time</label><br>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <div class="option">
+                    <div class="col-25">
+                    <label for="preference">Preference:</label></div>
+                    <div class="col-75">
+                    <select name="prefer" class="form-control" id="prefer">
+                        <option>Opposite</option>
+                        <option>Same</option>
+                    </select></div>
+                </div>
+                <div class="option">
+                    <div class="col-25">
+                      <label for="subject">About</label>
+                    </div>
+                    <div class="col-75">
+                      <textarea id="subject" name="abt" placeholder="Write about yourself"></textarea>
+                    </div>
+                  </div>
+                  <div class="option">
+                    <input type="submit" value="Save">
+                  </div>
+                <br>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

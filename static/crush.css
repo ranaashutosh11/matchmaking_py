@@ -1,0 +1,63 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body
+{
+    background-image:url({{ url_for ('static', filename = '/static/crush.jpg') }});
+    opacity: 85%;
+    text-align:center;
+    background-position: all;
+    background-size: cover;
+    font-family: sans-serif;
+    border-width: 20px;
+    position: relative;
+    top: 125px;
+    word-spacing: 4px;
+    filter: brightness(50px);
+}
+.database
+{
+    position: relative;
+    top: 0px;
+    right: 0px;
+    font-style: italic;
+}
+#regform
+{
+    width: 800px;
+    background-color: transparent;
+    margin: auto;
+    color: black;
+    padding: 10px 0px 10px 0px;
+    text-align: center;
+    border-radius: 15px 15px 0px 0px;
+}
+.button1
+{
+    background: linear-gradient(-45deg , blue, red);
+    border-radius: 8px;
+}
+.button2
+{
+    background: linear-gradient(-45deg , orange, green);
+    border-radius: 8px;
+}
+.first_name
+{
+    border-radius: 8px;
+
+}
+.last_name
+{
+    border-radius: 8px;
+
+}
+.id_number
+{
+    border-radius: 50px;
+
+}
+h1{
+    margin: 40px;
+}
