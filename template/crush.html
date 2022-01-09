@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		crush
+	</title>
+	<!-- <link rel="stylesheet" href="{{ url_for('static', filename='crush.css') }}"> -->
+	<style>
+		*{
+    margin: 0;
+    padding: 0;
+}
+body
+{
+    background-image:url({{ url_for('static', filename='crush.jpg') }});
+    opacity: 85%;
+    text-align:center;
+    background-position: all;
+    background-size: cover;
+    font-family: sans-serif;
+    border-width: 20px;
+    position: relative;
+    top: 125px;
+    word-spacing: 4px;
+    filter: brightness(50px);
+}
+.database
+{
+    position: relative;
+    top: 0px;
+    right: 0px;
+    font-style: italic;
+}
+#regform
+{
+    width: 800px;
+    background-color: transparent;
+    margin: auto;
+    color: black;
+    padding: 10px 0px 10px 0px;
+    text-align: center;
+    border-radius: 15px 15px 0px 0px;
+}
+.button1
+{
+    background: linear-gradient(-45deg , blue, red);
+    border-radius: 8px;
+}
+.button2
+{
+    background: linear-gradient(-45deg , orange, green);
+    border-radius: 8px;
+}
+.first_name
+{
+    border-radius: 8px;
+
+}
+.last_name
+{
+    border-radius: 8px;
+
+}
+.id_number
+{
+    border-radius: 50px;
+
+}
+h1{
+    margin: 40px;
+}
+	</style>
+</head>
+<body>
+	<form id="regform" action="{{ url_for('crush') }}" method="POST">
+		<h1>YOUR CRUSH</h1>
+		<label class="firstname">Name</label>
+		<input type="text" class="first_name" name="name">
+		<label class="lastname">Id</label>
+		<input type="text" class="last_name" name="id">
+		<h3>Your ID</h3>
+		<input type="text" class="id_number" name="userid"><br><br>
+		<button class="button1" onclick="Save()">SUBMIT</button>
+
+	</form>
+		<div class="iddatabase"><p>you can find out id's <a class="button2" href="{{ url_for('static', filename='id.xlsx') }}">HERE</a</div> <br>
+			<div class="msg" style="color: black;">{{ msg }}</div> 
+	<script>
+		function Save() {
+		  document.getElementById("regform").submit();
+		}
+		</script>
+</body>
+</html>
